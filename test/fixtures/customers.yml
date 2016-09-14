@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  organization: MyString
+  segment: MyString
+  address: MyText
+  kecamatan: MyString
+  city: MyString
+  province: MyString
+  postal_code: 1
+  contact_person: MyString
+  phone: 1
+  email: MyString
+  total_visit: 1
+  note: MyText
+
+two:
+  organization: MyString
+  segment: MyString
+  address: MyText
+  kecamatan: MyString
+  city: MyString
+  province: MyString
+  postal_code: 1
+  contact_person: MyString
+  phone: 1
+  email: MyString
+  total_visit: 1
+  note: MyText

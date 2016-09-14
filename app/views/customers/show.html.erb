@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @customer.organization %>
+</p>
+
+<p>
+  <strong>Segment:</strong>
+  <%= @customer.segment %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @customer.address %>
+</p>
+
+<p>
+  <strong>Kecamatan:</strong>
+  <%= @customer.kecamatan %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @customer.city %>
+</p>
+
+<p>
+  <strong>Province:</strong>
+  <%= @customer.province %>
+</p>
+
+<p>
+  <strong>Postal code:</strong>
+  <%= @customer.postal_code %>
+</p>
+
+<p>
+  <strong>Contact person:</strong>
+  <%= @customer.contact_person %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @customer.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @customer.email %>
+</p>
+
+<p>
+  <strong>Total visit:</strong>
+  <%= @customer.total_visit %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @customer.note %>
+</p>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>

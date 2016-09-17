@@ -1,0 +1,30 @@
+<h1>Bookings</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+			<th>Organisasi</th>
+      <th>Unit</th>
+      <th>Paket</th>
+      <th>Tgl Mulai</th>
+      <th>Tgl Akhir</th>
+			<th>Marketing</th>
+      <th>Status</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @customers.each do |customer| %>
+		<tr>
+			<td><%= customer.organization %></td>
+		  <% customer.bookings.each do |booking| %>
+			<td><%= booking.unit %></td>
+			<td><%= booking.packet %></td>
+      <td><%= booking.start_date %></td>
+      <td><%= booking.end_date %></td>
+			<td><%= booking.status %></td>
+      <% end %>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

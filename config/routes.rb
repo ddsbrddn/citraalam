@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'bookings/index'
+
   resources :customers
   devise_for :users
   root 'static_pages#home'

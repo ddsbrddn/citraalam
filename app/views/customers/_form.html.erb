@@ -119,7 +119,7 @@
 
       <div class="form-group">
         <%= b.label :status, "Status" %>
-        <%= b.text_field :status, class: "form-control" %>
+        <%= b.select :status, [['Proses',1],['Booking', 2], ['Deal', 3], ['Berjalan', 4], ['Cancel', 5]], {}, {class: "form-control"} %>
       </div>
     <% end %>
 

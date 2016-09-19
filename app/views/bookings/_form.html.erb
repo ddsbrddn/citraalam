@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for(booking) do |f| %>
+    <% if booking.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+        <ul>
+        <% booking.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-inline">
+      <div class="form-group">
+        <%= f.label :unit, "Unit" %>
+        <%= f.select :unit, [['Riverside',1],['Lakeside', 2], ['Seaside', 3]], {}, {class: "form-control"} %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :packet, "Paket" %>
+        <%= f.text_field :packet, class: "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-inline">
+      <div class="form-group">
+        <%= f.label :start_date, "Tanggal Mulai" %>
+        <%= f.text_field :start_date, class: "datepicker" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :end_date, "Tanggal Akhir" %>
+        <%= f.text_field :end_date, class: "datepicker" %>
+      </div>
+    </div>
+
+		<div class="form-group">
+			<%= f.label :total_participant, "Jumlah Peserta" %>
+			<%= f.text_field :total_participant, class: "form-control" %>
+		</div>
+
+    <div class="form-group">
+      <%= f.label :note, "Keterangan Kegiatan" %>
+      <%= f.text_area :note, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :status, "Status" %>
+      <%= f.select :status, [['Proses',1],['Booking', 2], ['Deal', 3], ['Berjalan', 4], ['Cancel', 5]], {}, {class: "form-control"} %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Save', :class => 'btn btn-primary' %>
+    </div>
+  <% end %>
+  </div>
+</div>

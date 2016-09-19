@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
-  get 'bookings/index'
+  #get 'bookings/index'
+  #get 'bookings/edit'
+  #get 'bookings/show'
+  resources :bookings
 
-  resources :customers
+  resources :customers do
+    collection do
+      get '/customer_lists', to: 'customers#customer_lists', as: :user
+    end
+  end
+
   devise_for :users
   root 'static_pages#home'
 

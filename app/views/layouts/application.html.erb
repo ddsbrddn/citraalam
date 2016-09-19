@@ -12,8 +12,8 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <p id="notice" class="notice"><%= notice %></p>
+      <p id="notice" class="alert"><%= alert %></p>
 
       <div class="notice">
         <% if user_signed_in? %>
@@ -21,9 +21,9 @@
           <% when 'user' %>
             <h3>Welcome</h3>
           <% when 'marketing' %>
-            <h3>Welcome, Marketing</h3>
+            <h3>Welcome, <%= current_user.email %></h3>
           <% when 'unit' %>
-            <h3>Welcome, Customer Service</h3>
+            <h3>Welcome, <%= current_user.email %></h3>
           <% when 'admin' %>
             <h3>Welcome, Administrator</h3>
           <% end %>

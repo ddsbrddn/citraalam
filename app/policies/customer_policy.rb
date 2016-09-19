@@ -5,6 +5,10 @@ class CustomerPolicy < ApplicationPolicy
 		end
 	end
 
+	def index?
+		user.admin? or user.unit?
+	end
+
 	def destroy?
 		user.admin?
 	end

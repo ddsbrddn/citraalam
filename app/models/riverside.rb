@@ -1,0 +1,2 @@
+class Riverside < ApplicationRecord
+end

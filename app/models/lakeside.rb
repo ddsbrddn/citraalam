@@ -1,0 +1,2 @@
+class Lakeside < ApplicationRecord
+end

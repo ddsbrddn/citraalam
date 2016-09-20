@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :lakesides
+  resources :riversides
   #get 'bookings/index'
   #get 'bookings/edit'
   #get 'bookings/show'

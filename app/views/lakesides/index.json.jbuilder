@@ -1,0 +1,1 @@
+json.array! @lakesides, partial: 'lakesides/lakeside', as: :lakeside

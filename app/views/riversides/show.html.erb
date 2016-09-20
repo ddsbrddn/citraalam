@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @riverside.unit %>
+</p>
+
+<p>
+  <strong>Packet:</strong>
+  <%= @riverside.packet %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @riverside.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @riverside.end_time %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @riverside.status %>
+</p>
+
+<%= link_to 'Edit', edit_riverside_path(@riverside) %> |
+<%= link_to 'Back', riversides_path %>

@@ -1,0 +1,42 @@
+<h1>Riversides</h1>
+
+<%= month_calendar events: @riversides do |date, riversides| %>
+  <%= date %>
+
+  <% riversides.each do |riverside| %>
+    <div>
+      <%= link_to riverside.organization, riverside %>
+    </div>
+  <% end %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Organization</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @riversides.each do |riverside| %>
+      <tr>
+        <td><%= riverside.organization %></td>
+        <td><%= riverside.start_time %></td>
+        <td><%= riverside.end_time %></td>
+        <td><%= riverside.status %></td>
+        <td><%= link_to 'Show', riverside %></td>
+        <td><%= link_to 'Edit', edit_riverside_path(riverside) %></td>
+        <td><%= link_to 'Destroy', riverside, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'New Riverside', new_riverside_path %>

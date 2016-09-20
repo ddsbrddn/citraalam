@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @lakeside.organization %>
+</p>
+
+<p>
+  <strong>Packet:</strong>
+  <%= @lakeside.packet %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @lakeside.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @lakeside.end_time %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @lakeside.status %>
+</p>
+
+<%= link_to 'Edit', edit_lakeside_path(@lakeside) %> |
+<%= link_to 'Back', lakesides_path %>

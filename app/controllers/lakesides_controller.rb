@@ -5,6 +5,14 @@ class LakesidesController < ApplicationController
   # GET /lakesides.json
   def index
     @lakesides = Lakeside.all
+
+    @bookings = Booking.all
+
+    if params[:status] == "Booking"
+      @post_booking = params[:booking]
+    else
+
+    end
   end
 
   # GET /lakesides/1

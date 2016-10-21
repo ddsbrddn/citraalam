@@ -1,9 +1,34 @@
 <h1>Bookings</h1>
 
+<%= form_tag(bookings_path, :method => "get", class: "form-inline") do %>
+    <div class="input-group input-group-lg">
+      <% if params[:query].present? %>
+       <div class="input-group-btn">
+         <%= link_to "clear", bookings_path, class: "btn btn-default" %>
+       </div>
+      <% end %>
+      <%= text_field_tag :query, params[:query], class: "form-control", id: "booking_search", autocomplete: "off" %>
+      <div class="input-group-btn">
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
+    </div>
+
+
+
+
+<% end %>
+
+<p> </p>
+<%= will_paginate %>
+<%= render @bookings %>
+<%= will_paginate %>
+
+<p></p>
+
 <table class="table table-bordered table-striped table-condensed table-hover">
   <thead>
     <tr>
-			<th>Organisasi</th>
+      <th>Organisasi</th>
       <th>Unit</th>
       <th>Paket</th>
       <th>Tgl Mulai</th>
@@ -15,22 +40,19 @@
 	</thead>
 
 	<tbody>
-		<% @customers.each do |customer| %>
+    <% @bookings.each do |booking| %>
 		<tr>
-			<td><%= customer.organization %></td>
-		  <% customer.bookings.each do |booking| %>
+      <td><%= booking.customer.organization %></td>
 			<td><%= booking.unit %></td>
 			<td><%= booking.packet %></td>
-      <td><%= booking.start_date %></td>
-      <td><%= booking.end_date %></td>
+      <td><%= booking.start_time %></td>
+      <td><%= booking.end_time %></td>
       <td><%= booking.total_participant %></td>
 			<td><%= booking.status %></td>
-
-      <td><%= link_to 'Show', booking %></td>
+      <td><%= link_to 'Show', bookings_path %></td>
     	<td><%= link_to 'Edit', edit_booking_path(booking) %></td>
     	<td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
 		</tr>
-		<% end %>
+    <% end %>
 	</tbody>
 </table>

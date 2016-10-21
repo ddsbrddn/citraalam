@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-8">
     <%= form_for(customer) do |f| %>
-    <% if customer.errors.any? %>
+      <% if customer.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
 
@@ -11,7 +11,7 @@
         <% end %>
         </ul>
       </div>
-    <% end %>
+      <% end %>
 
     <div class="form-inline">
       <div class="form-group">
@@ -78,20 +78,20 @@
       </div>
     </div>
 
-    <br><br>
-
     <div class="form-group">
       <%= f.label :note, "Keterangan Kustomer" %>
       <%= f.text_area :note, :class => "form-control" %>
     </div>
 
-    <br><br>
+    <br /><br />
+
+    <h3>Rencana Kegiatan</h3>
 
     <%= f.fields_for :bookings do |b| %>
       <div class="form-inline">
         <div class="form-group">
           <%= b.label :unit, "Unit" %>
-          <%= b.select :unit, [['Riverside',1],['Lakeside', 2], ['Seaside', 3]], {}, {class: "form-control"} %>
+          <%= b.select :unit, [['riverside', 'Riverside'],['lakeside', 'Lakeside']], {}, {class: "form-control"} %>
         </div>
 
         <div class="form-group">
@@ -100,32 +100,34 @@
         </div>
       </div>
 
-      <div class="form-inline">
-        <div class="form-group">
-          <%= b.label :start_date, "Tanggal Mulai" %>
-          <%= b.text_field :start_date, class: "datepicker" %>
-        </div>
-
-        <div class="form-group">
-          <%= b.label :end_date, "Tanggal Akhir" %>
-          <%= b.text_field :end_date, class: "datepicker" %>
-        </div>
-      </div>
-
       <div class="form-group">
   			<%= b.label :total_participant, "Jumlah Peserta" %>
   			<%= b.text_area :total_participant, class: "form-control" %>
-  		</div>      
+  		</div>
 
       <div class="form-group">
         <%= b.label :note, "Keterangan Kegiatan" %>
         <%= b.text_area :note, class: "form-control" %>
       </div>
 
-      <div class="form-group">
-        <%= b.label :status, "Status" %>
-        <%= b.select :status, [['Proses',1],['Booking', 2], ['Deal', 3], ['Berjalan', 4], ['Cancel', 5]], {}, {class: "form-control"} %>
+      <%= b.fields_for :lakesides, Lakeside.new do |bl| %>
+      <div class="form-inline">
+        <div class="form-group">
+          <%= bl.label :start_time, "Tanggal Mulai" %>
+          <%= bl.text_field :start_time, 'data-provide' => 'datepicker', class: 'datepicker' %>
+        </div>
+
+        <div class="form-group">
+          <%= bl.label :end_time, "Tanggal Selesai" %>
+          <%= bl.text_field :end_time, 'data-provide' => 'datepicker', class: 'datepicker' %>
+        </div>
+
+        <div class="form-group">
+          <%= bl.label :status, "Status" %>
+          <%= bl.select :status, [['proses', 'Proses'],['booking', 'Booking'], ['deal', 'Deal'], ['berjalan', 'Berjalan'], ['cancel', 'Cancel']], {}, {class: "form-control"} %>
+        </div>
       </div>
+      <% end %>
     <% end %>
 
     <div class="actions">

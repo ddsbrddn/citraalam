@@ -1,4 +1,8 @@
 <p>
+  <strong>Organisasi:</strong>
+  <%= @booking.customer.organization %>
+</p>
+<p>
   <strong>Unit:</strong>
   <%= @booking.unit %>
 </p>
@@ -10,12 +14,12 @@
 
 <p>
   <strong>Tgl Mulai:</strong>
-  <%= @booking.start_date %>
+  <%= @booking.start_time %>
 </p>
 
 <p>
   <strong>Tgl Akhir:</strong>
-  <%= @booking.end_date %>
+  <%= @booking.end_time %>
 </p>
 
 <p>

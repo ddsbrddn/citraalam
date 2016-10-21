@@ -13,4 +13,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :customers
+  has_many :bookings
 end

@@ -6,8 +6,8 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     @customers = policy_scope(Customer)
-    authorize @customers
-    #@customers = Customer.all
+    #authorize @customers
+    @customers = Customer.all
   end
 
   # GET /customers/1
@@ -78,6 +78,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:organization, :segment, :address, :kecamatan, :city, :province, :postal_code, :contact_person, :phone, :email, :total_visit, :note, bookings_attributes: [:unit, :packet, :start_date, :end_date, :total_participant, :status, :note])
+      params.require(:customer).permit(:organization, :segment, :address, :kecamatan, :city, :province, :postal_code, :contact_person, :phone, :email, :total_visit, :note, bookings_attributes: [:unit, :packet, :total_participant, :note, lakesides_attributes: [:start_time, :end_time, :status]])
     end
 end

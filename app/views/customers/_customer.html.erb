@@ -1,4 +1,4 @@
-<%# @customers.each do |customer| %>
+<%= @customers.each do |customer| %>
 <tr>
 	<td><%= customer.organization %></td>
 	<td><%= customer.segment %></td>
@@ -15,7 +15,7 @@
 	<td><%= link_to 'Show', customer %></td>
 	<td><%= link_to 'Edit', edit_customer_path(customer) %></td>
 	<% if policy(customer).destroy? %>
-	<td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	<td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 	<% end %>
 </tr>
-<%# end %>
+<% end %>

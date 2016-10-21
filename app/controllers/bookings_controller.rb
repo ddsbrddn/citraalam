@@ -3,11 +3,15 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = Booking.all
-    @customers = Customer.all
+    #@bookings = Booking.all
+    #@customers = Customer.all
 
-    respond_to do |format|
-      format.html
+    @bookings = Booking.paginate(page: params[:page])
+
+    if params[:query].present?
+      @bookings = Booking.search(params[:query], page: params[:page])
+    else
+      @bookings = Booking.order(:packet).page params[:page]
     end
   end
 
@@ -56,6 +60,10 @@ class BookingsController < ApplicationController
     end
   end
 
+  def autocomplete
+    render json: Booking.search(params[:query], autocomplete: true, limit: 10).map(&:packet)
+  end
+
   private
 
     def set_booking
@@ -63,7 +71,7 @@ class BookingsController < ApplicationController
     end
 
     def booking_params
-      params.require(:booking).permit(:unit, :packet, :start_date, :end_date, :total_participant, :status, :note)
+      params.require(:booking).permit(:unit, :packet, :start_time, :end_time, :total_participant, :status, :note)
     end
 
 end

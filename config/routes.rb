@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   #get 'bookings/index'
   #get 'bookings/edit'
   #get 'bookings/show'
-  resources :bookings
+  resources :bookings do
+    collection do
+      post :import
+      get :autocomplete
+    end
+  end
 
   resources :customers do
     collection do
@@ -14,6 +19,8 @@ Rails.application.routes.draw do
 
   devise_for :users
   root 'static_pages#home'
+
+  post "post_booking" => "lakesides#post_booking"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -69,6 +69,6 @@ class RiversidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def riverside_params
-      params.require(:riverside).permit(:unit, :packet, :start_time, :end_time, :status)
+      params.require(:riverside).permit(:organization, :start_time, :end_time, :status)
     end
 end

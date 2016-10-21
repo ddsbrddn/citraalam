@@ -2,6 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
-	$('.datepicker').datepicker
-		#dateFormat: 'dd-mm-yy'
+$ ->
+  $('.datepicker').datepicker
+    #format: 'yyyy/mm/dd'

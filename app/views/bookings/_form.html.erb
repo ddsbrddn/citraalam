@@ -27,13 +27,13 @@
 
     <div class="form-inline">
       <div class="form-group">
-        <%= f.label :start_date, "Tanggal Mulai" %>
-        <%= f.text_field :start_date, class: "datepicker" %>
+        <%= f.label :start_time, "Tanggal Mulai" %>
+        <%= f.text_field :start_time, 'data-provide' => 'datepicker', class: 'datepicker' %>
       </div>
 
       <div class="form-group">
-        <%= f.label :end_date, "Tanggal Akhir" %>
-        <%= f.text_field :end_date, class: "datepicker" %>
+        <%= f.label :end_time, "Tanggal Akhir" %>
+        <%= f.text_field :end_time, 'data-provide' => 'datepicker', class: 'datepicker' %>
       </div>
     </div>
 

@@ -11,8 +11,13 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'pundit'
-gem 'jquery-ui-rails'
+#gem 'jquery-ui-rails'
 gem "simple_calendar", "~> 2.0"
+gem 'will_paginate',           '3.1.0'
+gem 'bootstrap-will_paginate', '0.0.10'
+gem 'bootstrap-datepicker-rails'
+gem 'searchkick'
+
 
 
 group :development, :test do

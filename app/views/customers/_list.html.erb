@@ -18,7 +18,27 @@
   </thead>
 
   <tbody>
-		<%= render @customers %>
+    <% @customers.each do |customer| %>
+    <tr>
+    	<td><%= customer.organization %></td>
+    	<td><%= customer.segment %></td>
+    	<td><%= customer.address %></td>
+    	<td><%= customer.kecamatan %></td>
+    	<td><%= customer.city %></td>
+    	<td><%= customer.province %></td>
+    	<td><%= customer.postal_code %></td>
+    	<td><%= customer.contact_person %></td>
+    	<td><%= customer.phone %></td>
+    	<td><%= customer.email %></td>
+    	<td><%= customer.total_visit %></td>
+    	<td><%= customer.user.email %></td>
+    	<td><%= link_to 'Show', customer %></td>
+    	<td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+    	<% if policy(customer).destroy? %>
+    	<td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    	<% end %>
+    </tr>
+    <% end %>
   </tbody>
 </table>
 

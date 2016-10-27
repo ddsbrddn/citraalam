@@ -7,9 +7,9 @@ class CreateCustomers < ActiveRecord::Migration[5.0]
       t.string :kecamatan
       t.string :city
       t.string :province
-      t.integer :postal_code, limit: => 16
+      t.integer :postal_code
       t.string :contact_person
-      t.integer :phone, limit: => 20
+      t.integer :phone
       t.string :email
       t.integer :total_visit
       t.text :note

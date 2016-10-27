@@ -1,26 +1,26 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Lakesides</h1>
 
-<%= month_calendar events: @lakesides do |date, lakesides| %>
-  <%= date %>
-
-  <% lakesides.each do |lakeside| %>
-    <div>
-      <%= link_to lakeside.organization, lakeside %>
+<%= form_tag(bookings_path, :method => "get", class: "form-inline") do %>
+    <div class="input-group input-group-lg">
+      <% if params[:query].present? %>
+       <div class="input-group-btn">
+         <%= link_to "clear", bookings_path, class: "btn btn-default" %>
+       </div>
+      <% end %>
+      <%= text_field_tag :query, params[:query], class: "form-control", id: "booking_search", autocomplete: "off" %>
+      <div class="input-group-btn">
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
     </div>
-  <% end %>
 <% end %>
 
+<div id="calendar" style="max-width: 60%;"></div>
 
-<p>
-
-<h2>Booking</h2>
+<h2>Lakeside</h2>
 <table>
   <thead>
     <tr>
       <th>Organization</th>
-      <th>Unit</th>
       <th>Packet</th>
       <th>Start time</th>
       <th>End time</th>
@@ -30,60 +30,19 @@
   </thead>
 
   <tbody>
-    <% @bookings.each do |booking| %>
+    <% @lakesides.each do |lakeside| %>
       <tr>
-        <td><%= booking.customer.organization %></td>
-        <td><%= booking.unit %></td>
-        <td><%= booking.packet %></td>
-        <td><%= booking.start_time %></td>
-        <td><%= booking.end_time %></td>
-        <td><%= booking.status %></td>
-        <td><%= link_to 'Show', booking %></td>
-        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= lakeside.organization %></td>
+        <td><%= lakeside.packet %></td>
+        <td><%= lakeside.start_time %></td>
+        <td><%= lakeside.end_time %></td>
+        <td><%= lakeside.status %></td>
+        <td><%= link_to 'Show', lakeside %></td>
+        <td><%= link_to 'Edit', edit_lakeside_path(lakeside) %></td>
+        <td><%= link_to 'Destroy', lakeside , method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-</p>
 
-
-<br>
-
-
-<p>
-  <h2>Lakeside</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Organization</th>
-        <th>Unit</th>
-        <th>Packet</th>
-        <th>Start time</th>
-        <th>End time</th>
-        <th>Status</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @lakesides.each do |lakeside| %>
-        <tr>
-          <td><%= lakeside.organization %></td>
-          <td><%# lakeside.unit %></td>
-          <td><%# lakeside.packet %></td>
-          <td><%= lakeside.start_time %></td>
-          <td><%= lakeside.end_time %></td>
-          <td><%# lakeside.status %></td>
-          <td><%# link_to 'Show', # %></td>
-          <td><%# link_to 'Edit', # %></td>
-          <td><%# link_to 'Destroy', # , method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  <br>
-</p>
-
-<%= link_to 'New Lakeside', new_lakeside_path %>
+<%= link_to "New Lakeside", new_lakeside_path %>

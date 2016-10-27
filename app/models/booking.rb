@@ -7,4 +7,7 @@ class Booking < ApplicationRecord
 	accepts_nested_attributes_for :lakesides
 
 	searchkick autocomplete: ['packet']
+
+	#define scope for Booking	with status booking
+	#scope :status, -> { where(status: "booking")}
 end

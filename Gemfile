@@ -12,7 +12,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'pundit'
 #gem 'jquery-ui-rails'
-gem "simple_calendar", "~> 2.0"
+#gem "simple_calendar", "~> 2.0"
+
+gem 'fullcalendar-rails', '2.8.0.0'
+gem 'momentjs-rails'
+
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'bootstrap-datepicker-rails'
